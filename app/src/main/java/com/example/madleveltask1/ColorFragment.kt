@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_color.*
 
@@ -32,6 +34,8 @@ class ColorFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         colorAdapter = ColorAdapter(colors, :: onColorClick)
+        rvColors.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
+        rvColors.adapter = colorAdapter
 
         observeColors()
     }
